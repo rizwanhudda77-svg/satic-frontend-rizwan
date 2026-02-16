@@ -1,30 +1,24 @@
-/* ============================= */
 /* RESET */
-/* ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ============================= */
-/* DAY 1 – DESIGN TOKENS */
-/* ============================= */
+/* DESIGN TOKENS (Day 1) */
 :root {
     --primary-color: #4a6cf7;
     --bg-color: #f4f4f4;
 }
 
-/* ============================= */
 /* GLOBAL */
-/* ============================= */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-color);
 }
 
 body.nav-open {
-    overflow: hidden; /* Scroll lock for mobile menu */
+    overflow: hidden;
 }
 
 main {
@@ -33,19 +27,18 @@ main {
 }
 
 footer {
-    background-color: var(--primary-color);
+    background: var(--primary-color);
     color: white;
     padding: 15px;
     text-align: center;
 }
 
-/* ============================= */
-/* DAY 3 – NAVBAR */
-/* ============================= */
+/* ================= DAY 3 NAVBAR ================= */
+
 .navbar {
     background: white;
     padding: 15px 40px;
-    border-bottom: 1px solid var(--bg-color);
+    border-bottom: 1px solid #ddd;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -53,28 +46,26 @@ footer {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
+/* Left */
 .brand {
     font-weight: 700;
     font-size: 20px;
     color: var(--primary-color);
 }
 
-/* NAV MENU */
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
+/* Center */
 .nav-links {
     list-style: none;
     display: flex;
-    align-items: center;
-    gap: 25px;
+    gap: 30px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-links a {
@@ -93,11 +84,17 @@ footer {
     border-bottom: 2px solid var(--primary-color);
 }
 
-/* Hamburger */
+/* Right */
+.nav-cta {
+    margin-left: auto;
+}
+
+/* Hamburger (Day 4) */
 .hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
+    margin-left: 20px;
     cursor: pointer;
 }
 
@@ -107,55 +104,8 @@ footer {
     background: black;
 }
 
-/* ============================= */
-/* DAY 4 – MOBILE NAVIGATION */
-/* ============================= */
-@media (max-width: 768px) {
+/* ================= DAY 2 BUTTON SYSTEM ================= */
 
-    .hamburger {
-        display: flex;
-        z-index: 1200;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 100%;
-        background: white;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        gap: 40px;
-        transition: right 0.3s ease;
-    }
-
-    .nav-menu.open {
-        right: 0;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .nav-links a {
-        font-size: 18px;
-    }
-
-    .nav-cta {
-        margin-top: 10px;
-    }
-}
-
-/* ============================= */
-/* DAY 2 – BUTTON SYSTEM */
-/* ============================= */
 .btn {
     padding: 10px 22px;
     border-radius: 6px;
@@ -186,20 +136,18 @@ footer {
 }
 
 .btn:disabled {
-    background: var(--bg-color);
-    border-color: gray;
-    color: gray;
+    background: #ddd;
+    border-color: #bbb;
+    color: #888;
     cursor: not-allowed;
-    opacity: 0.6;
 }
 
 .button-group {
     margin: 25px 0;
 }
 
-/* ============================= */
-/* DAY 5 – HERO SEARCH */
-/* ============================= */
+/* ================= DAY 5 HERO ================= */
+
 .hero {
     background: white;
     padding: 80px 20px 60px;
@@ -254,18 +202,21 @@ footer {
     left: -9999px;
 }
 
-/* ============================= */
-/* DAY 1 – JOURNEY SECTION */
-/* ============================= */
-.journey-list {
-    list-style: none;
-    margin-top: 20px;
-}
+/* ================= MOBILE (Day 4) ================= */
 
-.journey-list li {
-    background: white;
-    padding: 12px;
-    margin: 15px auto;
-    width: 300px;
-    border-radius: 8px;
-}
+@media (max-width: 768px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .navbar.nav-op
