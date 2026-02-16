@@ -57,6 +57,11 @@ background: black;
 
 @media (max-width: 768px) {
 
+    .hamburger {
+        display: flex;
+        z-index: 1200;
+    }
+
     .nav-menu {
         position: fixed;
         top: 0;
@@ -64,12 +69,32 @@ background: black;
         height: 100vh;
         width: 100%;
         background: white;
+
+        display: flex;
         flex-direction: column;
-        justify-content: center;
-        gap: 40px;
+        align-items: center;      /* ✅ CENTER HORIZONTALLY */
+        justify-content: center;  /* ✅ CENTER VERTICALLY */
+
+        gap: 30px;
         transition: right 0.3s ease;
-        z-index: 1000;   /* ✅ ADD THIS */
+        z-index: 1000;
     }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .nav-cta {
+        margin-top: 10px;
+    }
+}
+}
 
 }
 
