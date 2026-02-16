@@ -1,7 +1,15 @@
+/* ========================= */
+/* DESIGN TOKENS (Day 1)    */
+/* ========================= */
+
 :root {
     --primary-color: #4a6cf7;
     --bg-color: #f4f4f4;
 }
+
+/* ========================= */
+/* GLOBAL STYLES            */
+/* ========================= */
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -10,27 +18,8 @@ body {
     text-align: center;
 }
 
-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 20px;
-}
-
 main {
     padding: 40px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    background: white;
-    padding: 10px;
-    margin: 10px auto;
-    width: 300px;
-    border-radius: 8px;
 }
 
 footer {
@@ -38,8 +27,26 @@ footer {
     color: white;
     padding: 10px;
 }
+
 /* ========================= */
-/* DAY 2 - BUTTON COMPONENT */
+/* DAY 1 - JOURNEY SECTION  */
+/* ========================= */
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: white;
+    padding: 10px;
+    margin: 10px auto;
+    width: 300px;
+    border-radius: 8px;
+}
+
+/* ========================= */
+/* DAY 2 - BUTTON SYSTEM    */
 /* ========================= */
 
 .btn {
@@ -92,14 +99,16 @@ footer {
     cursor: not-allowed;
     opacity: 0.6;
 }
+
 /* ========================= */
-/* DAY 3 - NAVIGATION BAR  */
+/* DAY 3 - NAVIGATION BAR   */
 /* ========================= */
 
 .navbar {
     background-color: white;
     padding: 15px 40px;
     border-bottom: 1px solid var(--bg-color);
+    width: 100%;
 }
 
 .nav-container {
@@ -108,17 +117,26 @@ footer {
     align-items: center;
 }
 
+/* Brand */
 .brand {
     font-weight: 700;
     font-size: 20px;
     color: var(--primary-color);
 }
 
-/* Navigation Links */
+/* Nav Links */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Prevent Day 1 list styling from affecting navbar */
+.nav-links li {
+    background: none;
+    width: auto;
     padding: 0;
     margin: 0;
 }
