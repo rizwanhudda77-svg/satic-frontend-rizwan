@@ -126,9 +126,10 @@ footer {
 
 .hero {
     background: white;
-    padding: 80px 20px;
+    padding: 60px 20px 40px;
     text-align: center;
 }
+
 
 .search-form {
     display: flex;
@@ -166,9 +167,11 @@ footer {
 /* ================= DAY 6 - PROJECT GRID ================= */
 
 .projects-section {
-    padding: 80px 40px;
+    padding: 60px 20px;
     text-align: center;
 }
+
+
 
 .projects-section h2 {
     margin-bottom: 50px;
