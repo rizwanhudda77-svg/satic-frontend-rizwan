@@ -14,3 +14,20 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         body.classList.remove("nav-open");
     });
 });
+/* ================= HERO SEARCH LOGIC ================= */
+
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+
+searchForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Stop page reload
+
+    const value = searchInput.value.trim();
+
+    if (value === "") {
+        alert("Please enter a search term.");
+    } else {
+        console.log("Searching for:", value);
+        searchInput.value = "";
+    }
+});
