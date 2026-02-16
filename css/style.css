@@ -34,6 +34,7 @@ footer {
 }
 
 /* ================= DAY 3 - NAVBAR ================= */
+
 .navbar {
     background: white;
     padding: 15px 40px;
@@ -49,7 +50,6 @@ footer {
     align-items: center;
 }
 
-/* Center Links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -71,7 +71,6 @@ footer {
     border-bottom: 2px solid var(--primary-color);
 }
 
-/* Hamburger */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -86,6 +85,7 @@ footer {
 }
 
 /* ================= DAY 2 - BUTTON SYSTEM ================= */
+
 .btn {
     padding: 10px 22px;
     border-radius: 6px;
@@ -123,6 +123,7 @@ footer {
 }
 
 /* ================= DAY 5 - HERO ================= */
+
 .hero {
     background: white;
     padding: 80px 20px;
@@ -146,6 +147,7 @@ footer {
 
 .search-form input:focus {
     border-color: var(--primary-color);
+    outline: none;
 }
 
 .search-btn {
@@ -161,7 +163,63 @@ footer {
     left: -9999px;
 }
 
-/* ================= MOBILE (DAY 4) ================= */
+/* ================= DAY 6 - PROJECT GRID ================= */
+
+.projects-section {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    margin-bottom: 50px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* IMAGE */
+.project-image {
+    width: 100%;
+    height: 220px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CONTENT */
+.project-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-content h3 {
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* ================= MOBILE - DAY 4 ================= */
+
 @media (max-width: 768px) {
 
     .nav-links,
@@ -194,142 +252,7 @@ footer {
         left: 50%;
         transform: translateX(-50%);
     }
-}
-/* ================= DAY 6 - PROJECT GRID ================= */
 
-.projects-section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.projects-section h2 {
-    margin-bottom: 40px;
-}
-
-/* Grid Layout */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Desktop 3 columns */
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Card */
-.project-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column; /* Flex for footer alignment */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Image Zone */
-.card-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Prevent distortion */
-}
-
-/* Content */
-.card-content {
-    padding: 20px;
-    flex-grow: 1; /* Push footer down */
-}
-
-.card-content h3 {
-    margin-bottom: 10px;
-}
-
-.card-content p {
-    font-size: 14px;
-    color: #555;
-}
-
-/* Footer */
-.card-footer {
-    padding: 20px;
-    margin-top: auto; /* Important for bottom alignment */
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr; /* 1 column mobile */
-    }
-}
-/* ================= DAY 6 - PROJECT GRID ================= */
-
-.projects-section {
-    padding: 80px 40px;
-    text-align: center;
-}
-
-.projects-section h2 {
-    margin-bottom: 50px;
-}
-
-/* GRID LAYOUT */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-/* CARD */
-.project-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* IMAGE ZONE */
-.project-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* IMPORTANT */
-}
-
-/* CONTENT */
-.project-content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.project-content h3 {
-    margin-bottom: 10px;
-}
-
-.project-content p {
-    margin-bottom: 20px;
-    flex-grow: 1; /* PUSH BUTTON DOWN */
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
     }
