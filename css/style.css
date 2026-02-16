@@ -55,11 +55,24 @@ height: 3px;
 background: black;
 }
 
-.nav-menu {
-display: flex;
-align-items: center;
-gap: 40px;
+@media (max-width: 768px) {
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        transition: right 0.3s ease;
+        z-index: 1000;   /* ✅ ADD THIS */
+    }
+
 }
+
 
 .nav-links {
 list-style: none;
