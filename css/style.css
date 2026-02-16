@@ -1,0 +1,40 @@
+:root {
+    --primary-color: #4a6cf7;
+    --bg-color: #f4f4f4;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    text-align: center;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+}
+
+main {
+    padding: 40px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: white;
+    padding: 10px;
+    margin: 10px auto;
+    width: 300px;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+}
