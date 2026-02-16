@@ -2,20 +2,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const hamburger = document.getElementById("hamburger");
     const navbar = document.querySelector(".navbar");
-    const navLinks = document.querySelectorAll(".nav-links a");
 
-    if (hamburger && navbar) {
+    hamburger.addEventListener("click", function () {
+        navbar.classList.toggle("nav-open");
+        document.body.classList.toggle("nav-open");
+    });
 
-        hamburger.addEventListener("click", function () {
-            navbar.classList.toggle("nav-open");
-        });
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
 
-        // Auto close when clicking link
-        navLinks.forEach(link => {
-            link.addEventListener("click", function () {
-                navbar.classList.remove("nav-open");
-            });
-        });
-    }
+    searchForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const value = searchInput.value.trim();
+
+        if (value === "") {
+            alert("Please enter a search term.");
+            return;
+        }
+
+        console.log("Searching for:", value);
+    });
 
 });
