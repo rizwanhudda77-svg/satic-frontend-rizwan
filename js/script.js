@@ -1,18 +1,16 @@
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
 const body = document.body;
 
 hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("nav-open");
-    hamburger.classList.toggle("active");
-    body.classList.toggle("no-scroll");
+    navMenu.classList.toggle("open");   // <-- MATCH CSS
+    body.classList.toggle("nav-open");  // scroll lock
 });
 
 // Auto close when link clicked
 document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", () => {
-        navLinks.classList.remove("nav-open");
-        hamburger.classList.remove("active");
-        body.classList.remove("no-scroll");
+        navMenu.classList.remove("open");
+        body.classList.remove("nav-open");
     });
 });
