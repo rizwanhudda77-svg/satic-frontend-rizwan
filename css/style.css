@@ -92,3 +92,50 @@ footer {
     cursor: not-allowed;
     opacity: 0.6;
 }
+/* ========================= */
+/* DAY 3 - NAVIGATION BAR  */
+/* ========================= */
+
+.navbar {
+    background-color: white;
+    padding: 15px 40px;
+    border-bottom: 1px solid var(--bg-color);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 4px;
+}
