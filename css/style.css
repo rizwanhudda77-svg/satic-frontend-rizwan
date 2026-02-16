@@ -34,7 +34,6 @@ footer {
 }
 
 /* ================= DAY 3 - NAVBAR ================= */
-
 .navbar {
     background: white;
     padding: 15px 40px;
@@ -46,15 +45,8 @@ footer {
 
 .nav-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
-}
-
-/* Brand Left */
-.brand {
-    font-weight: 700;
-    font-size: 20px;
-    color: var(--primary-color);
 }
 
 /* Center Links */
@@ -62,17 +54,12 @@ footer {
     list-style: none;
     display: flex;
     gap: 30px;
-
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .nav-links a {
     text-decoration: none;
     color: black;
     font-weight: 500;
-    transition: 0.2s;
 }
 
 .nav-links a:hover {
@@ -84,17 +71,11 @@ footer {
     border-bottom: 2px solid var(--primary-color);
 }
 
-/* CTA Right */
-.nav-cta {
-    margin-left: auto;
-}
-
 /* Hamburger */
 .hamburger {
     display: none;
     flex-direction: column;
     gap: 5px;
-    margin-left: 20px;
     cursor: pointer;
 }
 
@@ -105,7 +86,6 @@ footer {
 }
 
 /* ================= DAY 2 - BUTTON SYSTEM ================= */
-
 .btn {
     padding: 10px 22px;
     border-radius: 6px;
@@ -124,10 +104,6 @@ footer {
     opacity: 0.9;
 }
 
-.btn-primary:active {
-    transform: scale(0.96);
-}
-
 .btn-outline {
     background: transparent;
     color: var(--primary-color);
@@ -139,54 +115,33 @@ footer {
     color: white;
 }
 
-.btn-outline:active {
-    transform: scale(0.96);
-}
-
 .btn:disabled {
     background: #ddd;
     border-color: #bbb;
     color: #888;
     cursor: not-allowed;
-    opacity: 0.6;
-}
-
-.button-group {
-    margin: 25px 0;
 }
 
 /* ================= DAY 5 - HERO ================= */
-
 .hero {
     background: white;
-    padding: 80px 20px 60px;
+    padding: 80px 20px;
     text-align: center;
-}
-
-.hero h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    margin-bottom: 30px;
-    color: #555;
 }
 
 .search-form {
     display: flex;
     justify-content: center;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .search-form input {
     flex: 1;
-    padding: 12px 15px;
+    padding: 12px;
     border: 2px solid #ccc;
     border-right: none;
     border-radius: 6px 0 0 6px;
-    outline: none;
 }
 
 .search-form input:focus {
@@ -199,11 +154,6 @@ footer {
     background: var(--primary-color);
     color: white;
     border-radius: 0 6px 6px 0;
-    cursor: pointer;
-}
-
-.search-btn:hover {
-    opacity: 0.9;
 }
 
 .visually-hidden {
@@ -211,43 +161,30 @@ footer {
     left: -9999px;
 }
 
-/* ================= MOBILE - DAY 4 ================= */
-
+/* ================= MOBILE (DAY 4) ================= */
 @media (max-width: 768px) {
 
-    /* Hide center + CTA */
-    .nav-links {
-        display: none;
-        position: static;
-        transform: none;
-    }
-
+    .nav-links,
     .nav-cta {
         display: none;
     }
 
-    /* Show hamburger */
     .hamburger {
         display: flex;
-        margin-left: auto;
     }
 
-    /* When open */
     .navbar.nav-open .nav-links {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
-
         background: white;
+        justify-content: center;
+        align-items: center;
         gap: 30px;
-        z-index: 999;
     }
 
     .navbar.nav-open .nav-cta {
@@ -256,25 +193,5 @@ footer {
         bottom: 120px;
         left: 50%;
         transform: translateX(-50%);
-        z-index: 1000;
     }
-
-    .hero h1 {
-        font-size: 28px;
-    }
-}
-
-/* ================= JOURNEY LIST ================= */
-
-.journey-list {
-    list-style: none;
-    margin-top: 20px;
-}
-
-.journey-list li {
-    background: white;
-    padding: 12px;
-    margin: 15px auto;
-    width: 300px;
-    border-radius: 8px;
 }
