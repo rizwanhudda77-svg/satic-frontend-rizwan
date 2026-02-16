@@ -1,36 +1,27 @@
-// DAY 4 - MOBILE NAVIGATION
+// ================= DAY 4 MOBILE NAV =================
 
 const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
-const body = document.body;
+const navbar = document.querySelector(".navbar");
 
 hamburger.addEventListener("click", () => {
-navMenu.classList.toggle("open");
-body.classList.toggle("nav-open");
+    navbar.classList.toggle("nav-open");
+    document.body.classList.toggle("nav-open");
 });
 
-document.querySelectorAll(".nav-links a").forEach(link => {
-link.addEventListener("click", () => {
-navMenu.classList.remove("open");
-body.classList.remove("nav-open");
-});
-});
-
-// DAY 5 - HERO SEARCH
+// ================= DAY 5 SEARCH =================
 
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
 
 searchForm.addEventListener("submit", function(event) {
-event.preventDefault();
+    event.preventDefault();
 
-const value = searchInput.value.trim();
+    const value = searchInput.value.trim();
 
-if (value === "") {
-alert("Please enter a search term.");
-return;
-}
+    if (value === "") {
+        alert("Please enter a search term.");
+        return;
+    }
 
-console.log("Searching for:", value);
-searchInput.value = "";
+    console.log("Searching for:", value);
 });
