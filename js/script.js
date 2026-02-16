@@ -1,15 +1,12 @@
-// ================= NAVBAR TOGGLE =================
-
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
 const body = document.body;
 
 hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("open");   // match CSS
-    body.classList.toggle("nav-open");  // scroll lock
+    navMenu.classList.toggle("open");
+    body.classList.toggle("nav-open");
 });
 
-// Auto close when link clicked
 document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", () => {
         navMenu.classList.remove("open");
@@ -17,14 +14,12 @@ document.querySelectorAll(".nav-links a").forEach(link => {
     });
 });
 
-
-// ================= HERO SEARCH =================
-
+/* HERO SEARCH */
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
 
 searchForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // Stop reload
+    event.preventDefault();
 
     const value = searchInput.value.trim();
 
@@ -34,5 +29,4 @@ searchForm.addEventListener("submit", function(event) {
     }
 
     console.log("Searching for:", value);
-    searchInput.value = ""; // clear after search
 });
