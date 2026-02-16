@@ -20,6 +20,10 @@ body {
     background-color: var(--bg-color);
 }
 
+body.nav-open {
+    overflow: hidden; /* Scroll lock */
+}
+
 main {
     padding: 60px 20px;
     text-align: center;
@@ -46,7 +50,7 @@ footer {
     border-radius: 8px;
 }
 
-/* ================= DAY 2 BUTTON SYSTEM ================= */
+/* ================= BUTTON SYSTEM ================= */
 
 .btn {
     display: inline-block;
@@ -58,7 +62,6 @@ footer {
     transition: all 0.2s ease-in-out;
 }
 
-/* Primary */
 .btn-primary {
     background-color: var(--primary-color);
     color: white;
@@ -73,7 +76,6 @@ footer {
     transform: scale(0.96);
 }
 
-/* Outline */
 .btn-outline {
     background: transparent;
     color: var(--primary-color);
@@ -89,7 +91,6 @@ footer {
     transform: scale(0.96);
 }
 
-/* Disabled */
 .btn:disabled {
     background-color: var(--bg-color);
     color: gray;
@@ -102,7 +103,7 @@ footer {
     margin: 25px 0;
 }
 
-/* ================= DAY 3 NAVBAR ================= */
+/* ================= NAVBAR ================= */
 
 .navbar {
     background-color: white;
@@ -114,16 +115,39 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
-/* Brand */
 .brand {
     font-weight: 700;
     font-size: 20px;
     color: var(--primary-color);
 }
 
-/* Nav Links */
+/* Hamburger */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: black;
+    transition: 0.3s;
+}
+
+/* Nav Menu */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -145,4 +169,39 @@ footer {
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 4px;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        transition: right 0.3s ease;
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-cta {
+        margin-top: 20px;
+    }
 }
