@@ -200,6 +200,68 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+/* ================= HERO SECTION ================= */
+
+.hero {
+    padding: 80px 20px;
+    text-align: center;
+    background: white;
+}
+
+.hero h1 {
+    margin-bottom: 10px;
+}
+
+.hero p {
+    margin-bottom: 30px;
+    color: gray;
+}
+
+/* Search Form */
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #ccc;
+    border-right: none;
+    font-size: 14px;
+    outline: none;
+    border-radius: 8px 0 0 8px;
+    transition: border-color 0.2s ease;
+}
+
+/* Focus state */
+.search-form input:focus {
+    border-color: var(--primary-color);
+}
+
+/* Button */
+.search-btn {
+    padding: 12px 18px;
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    border-radius: 0 8px 8px 0;
+    transition: opacity 0.2s ease;
+}
+
+.search-btn:hover {
+    opacity: 0.9;
+}
+
+/* Hidden label (accessible) */
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
+}
 
     .nav-cta {
         margin-top: 20px;
