@@ -1,24 +1,30 @@
-/* ================= RESET ================= */
+/* ============================= */
+/* RESET */
+/* ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ================= DAY 1 — DESIGN TOKENS ================= */
+/* ============================= */
+/* DAY 1 – DESIGN TOKENS */
+/* ============================= */
 :root {
     --primary-color: #4a6cf7;
     --bg-color: #f4f4f4;
 }
 
-/* ================= GLOBAL ================= */
+/* ============================= */
+/* GLOBAL */
+/* ============================= */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-color);
 }
 
 body.nav-open {
-    overflow: hidden; /* Scroll lock (Day 4) */
+    overflow: hidden; /* Scroll lock for mobile menu */
 }
 
 main {
@@ -27,14 +33,15 @@ main {
 }
 
 footer {
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     color: white;
     padding: 15px;
     text-align: center;
 }
 
-/* ================= DAY 3 — NAVBAR ================= */
-
+/* ============================= */
+/* DAY 3 – NAVBAR */
+/* ============================= */
 .navbar {
     background: white;
     padding: 15px 40px;
@@ -56,18 +63,18 @@ footer {
     color: var(--primary-color);
 }
 
-/* Navigation container (Right side) */
+/* NAV MENU */
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
 }
 
-/* Links */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 25px;
 }
 
 .nav-links a {
@@ -86,18 +93,77 @@ footer {
     border-bottom: 2px solid var(--primary-color);
 }
 
-/* ================= DAY 2 — BUTTON SYSTEM ================= */
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
 
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: black;
+}
+
+/* ============================= */
+/* DAY 4 – MOBILE NAVIGATION */
+/* ============================= */
+@media (max-width: 768px) {
+
+    .hamburger {
+        display: flex;
+        z-index: 1200;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 100%;
+        background: white;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 40px;
+        transition: right 0.3s ease;
+    }
+
+    .nav-menu.open {
+        right: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+    }
+
+    .nav-cta {
+        margin-top: 10px;
+    }
+}
+
+/* ============================= */
+/* DAY 2 – BUTTON SYSTEM */
+/* ============================= */
 .btn {
     padding: 10px 22px;
     border-radius: 6px;
     border: 2px solid transparent;
     cursor: pointer;
-    transition: 0.2s ease-in-out;
-    font-size: 15px;
+    transition: 0.2s;
 }
 
-/* Primary */
 .btn-primary {
     background: var(--primary-color);
     color: white;
@@ -108,11 +174,6 @@ footer {
     opacity: 0.9;
 }
 
-.btn-primary:active {
-    transform: scale(0.96);
-}
-
-/* Outline */
 .btn-outline {
     background: transparent;
     color: var(--primary-color);
@@ -124,11 +185,6 @@ footer {
     color: white;
 }
 
-.btn-outline:active {
-    transform: scale(0.96);
-}
-
-/* Disabled */
 .btn:disabled {
     background: var(--bg-color);
     border-color: gray;
@@ -141,17 +197,18 @@ footer {
     margin: 25px 0;
 }
 
-/* ================= DAY 5 — HERO SECTION ================= */
-
+/* ============================= */
+/* DAY 5 – HERO SEARCH */
+/* ============================= */
 .hero {
     background: white;
-    padding: 100px 20px 80px;
+    padding: 80px 20px 60px;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 40px;
-    margin-bottom: 15px;
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
 .hero p {
@@ -159,103 +216,56 @@ footer {
     color: #555;
 }
 
-/* Search Form */
 .search-form {
     display: flex;
     justify-content: center;
-    max-width: 550px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
 .search-form input {
     flex: 1;
-    padding: 14px 15px;
+    padding: 12px 15px;
     border: 2px solid #ccc;
     border-right: none;
-    border-radius: 8px 0 0 8px;
+    border-radius: 6px 0 0 6px;
     outline: none;
-    font-size: 14px;
 }
 
 .search-form input:focus {
     border-color: var(--primary-color);
 }
 
-/* Search Button */
 .search-btn {
-    padding: 0 20px;
+    padding: 0 18px;
     border: 2px solid var(--primary-color);
     background: var(--primary-color);
     color: white;
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 6px 6px 0;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .search-btn:hover {
     opacity: 0.9;
 }
 
-/* Accessibility */
 .visually-hidden {
     position: absolute;
     left: -9999px;
 }
 
-/* ================= DAY 4 — MOBILE RESPONSIVE ================= */
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 1200;
+/* ============================= */
+/* DAY 1 – JOURNEY SECTION */
+/* ============================= */
+.journey-list {
+    list-style: none;
+    margin-top: 20px;
 }
 
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: black;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 100%;
-        background: white;
-
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 35px;
-
-        transition: right 0.3s ease;
-    }
-
-    .nav-menu.open {
-        right: 0;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-    }
-
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .search-form {
-        max-width: 100%;
-    }
+.journey-list li {
+    background: white;
+    padding: 12px;
+    margin: 15px auto;
+    width: 300px;
+    border-radius: 8px;
 }
