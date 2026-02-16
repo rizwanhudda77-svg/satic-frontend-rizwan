@@ -270,3 +270,67 @@ footer {
         grid-template-columns: 1fr; /* 1 column mobile */
     }
 }
+/* ================= DAY 6 - PROJECT GRID ================= */
+
+.projects-section {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    margin-bottom: 50px;
+}
+
+/* GRID LAYOUT */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* CARD */
+.project-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* IMAGE ZONE */
+.project-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* IMPORTANT */
+}
+
+/* CONTENT */
+.project-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-content h3 {
+    margin-bottom: 10px;
+}
+
+.project-content p {
+    margin-bottom: 20px;
+    flex-grow: 1; /* PUSH BUTTON DOWN */
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
