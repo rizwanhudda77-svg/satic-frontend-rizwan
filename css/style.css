@@ -5,23 +5,25 @@
     box-sizing: border-box;
 }
 
-/* ================= DAY 1 - DESIGN TOKENS ================= */
+/* ================= DESIGN TOKENS ================= */
 :root {
     --primary-color: #4a6cf7;
     --bg-color: #f4f4f4;
 }
 
-/* ================= GLOBAL ================= */
+/* ================= GLOBAL LAYOUT ================= */
+
+/* Sticky Footer Layout Fix */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-color);
-}
-
-body.nav-open {
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
+    flex: 1;
     padding: 80px 20px;
     text-align: center;
 }
@@ -30,14 +32,7 @@ main section {
     margin-bottom: 100px;
 }
 
-footer {
-    background: var(--primary-color);
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
-
-/* ================= DAY 3 - NAVBAR ================= */
+/* ================= NAVBAR ================= */
 
 .navbar {
     background: white;
@@ -54,6 +49,11 @@ footer {
     align-items: center;
 }
 
+.brand {
+    font-weight: 700;
+    font-size: 20px;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -64,6 +64,7 @@ footer {
     text-decoration: none;
     color: black;
     font-weight: 500;
+    transition: 0.2s;
 }
 
 .nav-links a:hover {
@@ -88,7 +89,7 @@ footer {
     background: black;
 }
 
-/* ================= DAY 2 - BUTTON SYSTEM ================= */
+/* ================= BUTTON SYSTEM ================= */
 
 .btn {
     padding: 10px 22px;
@@ -96,6 +97,7 @@ footer {
     border: 2px solid transparent;
     cursor: pointer;
     transition: 0.2s;
+    font-size: 14px;
 }
 
 .btn-primary {
@@ -119,21 +121,18 @@ footer {
     color: white;
 }
 
-.btn:disabled {
-    background: #ddd;
-    border-color: #bbb;
-    color: #888;
+button:disabled {
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
-/* ================= DAY 5 - HERO ================= */
+/* ================= HERO ================= */
 
 .hero {
     background: white;
     padding: 60px 20px 40px;
     text-align: center;
 }
-
 
 .search-form {
     display: flex;
@@ -163,19 +162,11 @@ footer {
     border-radius: 0 6px 6px 0;
 }
 
-.visually-hidden {
-    position: absolute;
-    left: -9999px;
-}
-
-/* ================= DAY 6 - PROJECT GRID ================= */
+/* ================= PROJECT GRID ================= */
 
 .projects-section {
     padding: 60px 20px;
-    text-align: center;
 }
-
-
 
 .projects-section h2 {
     margin-bottom: 50px;
@@ -196,9 +187,7 @@ footer {
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-/* IMAGE */
 .project-image {
-    width: 100%;
     height: 220px;
 }
 
@@ -208,7 +197,6 @@ footer {
     object-fit: cover;
 }
 
-/* CONTENT */
 .project-content {
     padding: 20px;
     display: flex;
@@ -216,16 +204,184 @@ footer {
     flex: 1;
 }
 
-.project-content h3 {
+.project-content p {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+/* ================= TOAST SYSTEM ================= */
+
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+}
+
+.toast {
+    min-width: 280px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.toast.success {
+    background: #2ecc71;
+    border-left: 5px solid #27ae60;
+}
+
+.toast.error {
+    background: #e74c3c;
+    border-left: 5px solid #c0392b;
+}
+
+.toast button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* ================= CONTACT SECTION ================= */
+
+.contact-section {
+    padding: 100px 20px;
+    background: white;
+}
+
+.contact-section h2 {
+    margin-bottom: 50px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fafafa;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 14px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+}
+
+.input-error {
+    border-color: #e74c3c;
+    background: #fff5f5;
+}
+
+.input-success {
+    border-color: #2ecc71;
+    background: #f4fff7;
+}
+
+.error-msg {
+    font-size: 13px;
+    color: #e74c3c;
+    margin-top: 6px;
+    min-height: 18px;
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer {
+    background: #111;
+    color: #ddd;
+    padding: 60px 20px 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col h3,
+.footer-col h4 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer-col p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
     margin-bottom: 10px;
 }
 
-.project-content p {
-    margin-bottom: 20px;
-    flex-grow: 1;
+.footer-col ul li a {
+    text-decoration: none;
+    color: #bbb;
+    transition: 0.2s;
 }
 
-/* ================= MOBILE - DAY 4 ================= */
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
 
@@ -263,161 +419,9 @@ footer {
     .projects-grid {
         grid-template-columns: 1fr;
     }
-}
-/* ================= DAY 7 - TOAST SYSTEM ================= */
 
-/* Toast Container */
-#toast-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 9999;
-}
-
-/* Base Toast */
-.toast {
-    min-width: 280px;
-    padding: 15px 20px;
-    border-radius: 8px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-
-    opacity: 0;
-    transform: translateX(100%);
-    transition: all 0.3s ease;
-}
-
-/* Show Animation */
-.toast.show {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Success Variant */
-.toast.success {
-    background: #2ecc71;
-    border-left: 5px solid #27ae60;
-}
-
-/* Error Variant */
-.toast.error {
-    background: #e74c3c;
-    border-left: 5px solid #c0392b;
-}
-
-/* Close Button */
-.toast button {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 15px;
-}
-
-/* Playground */
-.playground-section {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.playground-buttons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-/* ================= DAY 8 - CONTACT ================= */
-
-.contact-section {
-    padding: 100px 20px;
-    background: white;
-    text-align: center;
-}
-
-.contact-section h2 {
-    margin-bottom: 50px;
-}
-
-/* Form Card */
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-    background: #fafafa;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-}
-
-/* Form Group */
-.form-group {
-    margin-bottom: 25px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Label */
-.form-group label {
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-
-/* Input & Textarea */
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 14px;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-    font-family: inherit;
-    font-size: 15px;
-    outline: none;
-    transition: 0.2s ease;
-    background: white;
-}
-
-/* Focus State */
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--primary-color);
-}
-
-/* Error State */
-.input-error {
-    border-color: #e74c3c;
-    background: #fff5f5;
-}
-
-/* Success State */
-.input-success {
-    border-color: #2ecc71;
-    background: #f4fff7;
-}
-
-/* Error Message */
-.error-msg {
-    font-size: 13px;
-    color: #e74c3c;
-    margin-top: 6px;
-    min-height: 18px;
-}
-
-/* Submit Button */
-.contact-form button {
-    width: 100%;
-    margin-top: 10px;
-}
-
-/* Disabled Button */
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
 }
