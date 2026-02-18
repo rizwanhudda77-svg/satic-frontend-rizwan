@@ -342,51 +342,81 @@ footer {
     text-align: center;
 }
 
+.contact-section h2 {
+    margin-bottom: 50px;
+}
+
+/* Form Card */
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
     text-align: left;
+    background: #fafafa;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
 }
 
+/* Form Group */
 .form-group {
     margin-bottom: 25px;
     display: flex;
     flex-direction: column;
 }
 
+/* Label */
 .form-group label {
     margin-bottom: 8px;
     font-weight: 500;
 }
 
+/* Input & Textarea */
 .form-group input,
 .form-group textarea {
-    padding: 12px;
-    border-radius: 6px;
-    border: 2px solid #ccc;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
     font-family: inherit;
+    font-size: 15px;
     outline: none;
     transition: 0.2s ease;
+    background: white;
 }
 
-/* Error state */
+/* Focus State */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+}
+
+/* Error State */
 .input-error {
     border-color: #e74c3c;
+    background: #fff5f5;
 }
 
-/* Success state */
+/* Success State */
 .input-success {
     border-color: #2ecc71;
+    background: #f4fff7;
 }
 
+/* Error Message */
 .error-msg {
     font-size: 13px;
     color: #e74c3c;
-    margin-top: 5px;
+    margin-top: 6px;
     min-height: 18px;
 }
 
-/* Disabled button style */
+/* Submit Button */
+.contact-form button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Disabled Button */
 button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
