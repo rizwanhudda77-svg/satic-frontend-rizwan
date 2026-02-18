@@ -71,3 +71,79 @@ if (errorBtn) {
         createToast("Something went wrong!", "error");
     });
 }
+/* ================= DAY 8 - CONTACT VALIDATION ================= */
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const messageInput = document.getElementById("message");
+const submitBtn = document.getElementById("submitBtn");
+
+const nameError = document.getElementById("nameError");
+const emailError = document.getElementById("emailError");
+const messageError = document.getElementById("messageError");
+
+function validateName() {
+    const value = nameInput.value.trim();
+
+    if (value.length < 3) {
+        nameInput.classList.add("input-error");
+        nameInput.classList.remove("input-success");
+        nameError.textContent = "Name must be at least 3 characters.";
+        return false;
+    } else {
+        nameInput.classList.remove("input-error");
+        nameInput.classList.add("input-success");
+        nameError.textContent = "";
+        return true;
+    }
+}
+
+function validateEmail() {
+    const value = emailInput.value.trim();
+
+    if (!value.includes("@") || !value.includes(".")) {
+        emailInput.classList.add("input-error");
+        emailInput.classList.remove("input-success");
+        emailError.textContent = "Enter a valid email address.";
+        return false;
+    } else {
+        emailInput.classList.remove("input-error");
+        emailInput.classList.add("input-success");
+        emailError.textContent = "";
+        return true;
+    }
+}
+
+function validateMessage() {
+    const value = messageInput.value.trim();
+
+    if (value.length === 0) {
+        messageInput.classList.add("input-error");
+        messageInput.classList.remove("input-success");
+        messageError.textContent = "Message cannot be empty.";
+        return false;
+    } else {
+        messageInput.classList.remove("input-error");
+        messageInput.classList.add("input-success");
+        messageError.textContent = "";
+        return true;
+    }
+}
+
+function checkFormValidity() {
+    const isNameValid = validateName();
+    const isEmailValid = validateEmail();
+    const isMessageValid = validateMessage();
+
+    submitBtn.disabled = !(isNameValid && isEmailValid && isMessageValid);
+}
+
+/* Real-time validation */
+nameInput.addEventListener("input", checkFormValidity);
+emailInput.addEventListener("input", checkFormValidity);
+messageInput.addEventListener("input", checkFormValidity);
+
+/* Prevent actual submit */
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+});
