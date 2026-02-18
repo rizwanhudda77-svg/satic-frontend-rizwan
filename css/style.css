@@ -22,8 +22,12 @@ body.nav-open {
 }
 
 main {
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
+}
+
+main section {
+    margin-bottom: 100px;
 }
 
 footer {
