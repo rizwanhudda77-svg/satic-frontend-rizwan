@@ -334,3 +334,60 @@ footer {
     justify-content: center;
     gap: 20px;
 }
+/* ================= DAY 8 - CONTACT ================= */
+
+.contact-section {
+    padding: 100px 20px;
+    background: white;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: 2px solid #ccc;
+    font-family: inherit;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+/* Error state */
+.input-error {
+    border-color: #e74c3c;
+}
+
+/* Success state */
+.input-success {
+    border-color: #2ecc71;
+}
+
+.error-msg {
+    font-size: 13px;
+    color: #e74c3c;
+    margin-top: 5px;
+    min-height: 18px;
+}
+
+/* Disabled button style */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
