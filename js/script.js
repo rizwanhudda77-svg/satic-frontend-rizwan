@@ -147,3 +147,29 @@ messageInput.addEventListener("input", checkFormValidity);
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 });
+/* ================= DAY 10 - BACK TO TOP ================= */
+
+const backToTopBtn = document.getElementById("backToTop");
+
+let isVisible = false;
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 500 && !isVisible) {
+        backToTopBtn.classList.add("show-btn");
+        isVisible = true;
+    }
+
+    if (window.scrollY <= 500 && isVisible) {
+        backToTopBtn.classList.remove("show-btn");
+        isVisible = false;
+    }
+
+});
+
+backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
